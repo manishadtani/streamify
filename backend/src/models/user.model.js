@@ -52,20 +52,28 @@ const userSchema = mongoose.Schema({
 }, {timestamps:true})
 
 
+userSchema.pre("save", async function(next){
 
+    if(!this.isModified("password")) return next()
+
+    try {
+        const salt = await bcrypt.genSalt(10)
+        this.password = await bcrypt.hash(this.password, salt)
+        next();
+    } catch (error) {   
+        next(error);
+    }
+})
+
+
+userSchema.methods.matchPassword = async function(enteredpassword){
+    const isPasswordCorrect = await bcrypt.compare(enteredpassword, this.password)
+    return isPasswordCorrect
+}
 
 const userModel = mongoose.model('user',userSchema)
 
 
-userSchema.pre("save", async function(next){
-    try {
-        const salt = await bcrypt.genSalt(10)
-        this.password = await bcrypt.hash(this.password, salt)
-        next()
-    } catch (error) {
-        next(error)
-    }
-})
 
 
 export default userModel
