@@ -177,4 +177,4 @@ export const onboardController = async (req, res) => {
                 console.log("Onboarding Error "+error)
                 res.status(500).json({message:"Internal server error"})
         }
-    }
+}
