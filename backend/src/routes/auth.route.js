@@ -11,4 +11,8 @@ router.post('/logout', logoutController)
 
 router.post("/onboarding", protectedRoute, onboardController)
 
+router.get("/me", protectedRoute, (req, res) => {
+    res.status(200).json({ user: req.user })
+})
+
 export default router;
