@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { signup } from '../lib/api'
+import useSignup from '../hooks/useSignup'
 
 const signUpPage = () => {
 
@@ -15,21 +16,22 @@ const signUpPage = () => {
     password:''
   });
 
-  const queryClient = useQueryClient()
+  // const queryClient = useQueryClient()
 
-  const {mutate:signupMutation, isPending, error} = useMutation({
-    mutationFn: signup,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey : ["authUser"]})
-    toast.success('Signup successful')
-    navigate('/');
-    },
+  // const {mutate:signupMutation, isPending, error} = useMutation({
+  //   mutationFn: signup,
+  //   onSuccess: () => {
+  //     queryClient.invalidateQueries({ queryKey : ["authUser"]})
+  //   toast.success('Signup successful')
+  //   navigate('/');
+  //   },
 
-    onError: (err) => {
-      toast.error(err?.response?.data?.message || "Something went wrong");
-    }
-  })
+  //   onError: (err) => {
+  //     toast.error(err?.response?.data?.message || "Something went wrong");
+  //   }
+  // })
 
+  const {isPending, error, signupMutation} = useSignup()
 
   const handleSingup = async (e) => {
     e.preventDefault();
