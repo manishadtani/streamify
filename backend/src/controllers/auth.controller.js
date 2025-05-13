@@ -153,7 +153,7 @@ export const onboardController = async (req, res) => {
                 { new: true }
             )
             if (!updatedUser) return res.status(404).json({ message: "user not found" })
-
+                /////////////////////////////////////////////////////////////
                 // update the user info in stream
 
                try {
@@ -169,6 +169,7 @@ export const onboardController = async (req, res) => {
                 res.status(500).json({message:"error in stream onboarding"+ error})
                }
 
+               ////////////////////////////////////////////
 
                 
 

@@ -11,8 +11,10 @@ router.post('/logout', logoutController)
 
 router.post("/onboarding", protectedRoute, onboardController)
 
+
+//check if user is loggedin
 router.get("/me", protectedRoute, (req, res) => {
-    res.status(200).json({ user: req.user })
+    res.status(200).json({ success: true, user: req.user })
 })
 
 export default router;
