@@ -3,7 +3,6 @@ import { Navigate, Route, Routes } from 'react-router'
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
-import Notificationpage from './pages/NotificationPage'
 import ChatPage from './pages/ChatPage'
 import CallPage from './pages/CallPage'
 import OnBoardingPage from './pages/Onboardingpage'
@@ -12,6 +11,7 @@ import PageLoader from './components/pageLoader.jsx'
 import { Toaster } from 'react-hot-toast'
 import Layout from './components/Layout.jsx'
 import { useThemeStore } from './store/useThemeStore.jsx'
+import NotificationPage from './pages/NotificationPage'
 
 const App = () => {
   const { isLoading, authUser } = useAuthUser()
@@ -63,8 +63,14 @@ const App = () => {
           }
         />
         <Route
-          path="/notification"
-          element={isAuthenticated ? <Notificationpage /> : <Navigate to="/login" />}
+          path="/notifications"
+          element={isAuthenticated && isOnboarded ? (
+            <Layout showSidebar={true}>
+                  <NotificationPage />
+            </Layout>
+          ) : (
+            <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
+          )}
         />
         <Route
           path="/chat"

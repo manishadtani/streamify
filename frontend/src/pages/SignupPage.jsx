@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import {ShipWheelIcon} from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
-import { toast } from 'react-hot-toast'
-import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { signup } from '../lib/api'
 import useSignup from '../hooks/useSignup'
 
 const signUpPage = () => {
@@ -36,18 +33,6 @@ const signUpPage = () => {
   const handleSingup = async (e) => {
     e.preventDefault();
     signupMutation(signupData)
-   
-
-    // try {
-    //   const res = await axiosInstance.post('/auth/signup', signupData);
-    //   if(res.data.success){
-    //     toast.success('Signup successful');
-    //     navigate('/login');
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    //   toast.error(error.response.data.message);
-    // }
   }
 
 

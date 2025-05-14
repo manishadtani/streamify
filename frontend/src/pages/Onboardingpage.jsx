@@ -25,8 +25,8 @@ const OnBoardingPage = () => {
   const { mutate: onBoardingMutation, isPending } = useMutation({
     mutationFn: completeOnBoarding,
     onSuccess: (updatedUser) => {
-      console.log(updatedUser)
-      console.log('Before update =>', queryClient.getQueryData(['authUser']))
+    //   console.log(updatedUser)
+    //   console.log('Before update =>', queryClient.getQueryData(['authUser']))
       toast.success('Profile onboarding successful')
       queryClient.setQueryData(['authUser'], (oldData) => ({
         ...oldData,

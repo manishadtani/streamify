@@ -10,7 +10,7 @@ export const getRecomendedUsers = async (req,res) => {
                     const recomendedUsers = await userModel.find({
                         $and: [
                             {_id: {$ne: currentUserId}}, //exclude current user
-                            {$id: {$nin: currentUser.friends}}, // exclude current user friends
+                            {_id: {$nin: currentUser.friends}}, // exclude current user friends
                             {isOnBoarded:true},
                         ]
                     })
@@ -40,7 +40,9 @@ export const getMyFriends = async (req,res) => {
 export const sendFriendRequest = async (req,res) => {
    try {
     const myId = req.user.id
+    
     const { id:recipientId } = req.params
+    
 
     //prevent sending req to yourself
     if(myId === recipientId) return res.status(400).json({message: "You can't send friend request to yourself" })
@@ -62,19 +64,19 @@ export const sendFriendRequest = async (req,res) => {
         });
 
         if(existingRequest){
-            res.status(400).json({message:"A friend request already exists between you and this user"})
+           return res.status(400).json({message:"A friend request already exists between you and this user"})
         }
 
         const friendRequest = await FriendRequest.create({
             sender: myId,
             recipient: recipientId
         }) 
-
-        res.status(201).json(friendRequest)
+        console.log(friendRequest)
+        return res.status(201).json(friendRequest)
 
    } catch (error) {
        console.log("Error in sendFriendRequest in user controller", error.message)
-       res.status(500).json({message:"Internal Server Error"})
+       return res.status(500).json({message:"Internal Server Error"})
    }
 }
 
