@@ -58,12 +58,16 @@ export const sendFriendRequest = async (userId) => {
 }
 
 export const getFriendRequests = async () => {
-    const res = await axiosInstance.get('/users/friend-requests');
+    const res = await axiosInstance.get('/user/friend-requests');
     return res.data;
 }
 
-export const acceptFriendRequest = async () => {
-    const res = await axiosInstance.put(`/users/friend-request/${requestId}/accept`)
+export const acceptFriendRequest = async (requestId) => {
+    const res = await axiosInstance.put(`/user/friend-request/${requestId}/accept`)
         return res.data;
 }
 
+export const getStreamToken = async () => {
+    const res = await axiosInstance.put('/chat/token')
+        return res.data;
+}

@@ -12,15 +12,17 @@ const NotificationsPage = () => {
   });
 
   const { mutate: acceptRequestMutation, isPending } = useMutation({
-    mutationFn: acceptFriendRequest,
+    mutationFn: acceptFriendRequest ,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["friendRequests"] });
       queryClient.invalidateQueries({ queryKey: ["friends"] });
     },
   });
+  console.log(friendRequests);
 
-  const incomingRequests = friendRequests?.incomingReqs || [];
-  const acceptedRequests = friendRequests?.acceptedReqs || [];
+
+  const incomingRequests = friendRequests?.incomingReq || [];
+  const acceptedRequests = friendRequests?.acceptedReq || [];
 
   return (
     <div className="p-4 sm:p-6 lg:p-8">
