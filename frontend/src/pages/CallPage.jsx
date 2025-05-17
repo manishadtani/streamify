@@ -54,6 +54,9 @@ const CallPage = () => {
           token: tokenData.token,
         });
 
+
+
+
         const callInstance = videoClient.call("default", callId);
 
         await callInstance.join({ create: true });
