@@ -9,14 +9,16 @@ import userRoute from './routes/user.route.js'
 import chatRoute from './routes/chat.route.js'
 
 app.use(cors({
-    origin:"https://streamify-murex.vercel.app",
-    credentials:true
-}))
+    origin: ['https://streamify-murex.vercel.app','http://localhost:5173'],
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE',"OPTIONS"],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 
 
 
 app.use(express.json())
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
 
 

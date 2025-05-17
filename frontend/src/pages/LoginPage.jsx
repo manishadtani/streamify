@@ -8,32 +8,13 @@ import singupimg from '../authassets/signup.png'
 const LoginPage = () => {
 
 
-  // const { isLoading} = useAuthUser()
+  const { isLoading} = useAuthUser()
   const navigate = useNavigate()
   
   const [formState, setFormState] = useState({
     email:"",
     password:""
   })
-
-
-  //////////////////////////////////////////////////////////////////////////
-  // const queryClient = useQueryClient()
-  // // const { mutate: loginMutation, isPending, error } = useMutation({
-  // //   mutationFn: login,
-  // //   onSuccess: () => {
-  // //     queryClient.invalidateQueries({ queryKey: ['authUser']})
-  // //     toast.success('Login successful')
-  // //     console.log('After update =>', queryClient.getQueryData(['authUser']))
-
-  // //     navigate('/');
-      
-  // //   },
-  // //   onError: (err) => {
-  // //     toast.error(err?.response?.data?.message || "Something went wrong")
-  // //   }
-  // // })
-  ////////////////////////////////////////////////////////////////////////////
 
   const {isPending, error, loginMutation} = useLogin()
 
@@ -42,9 +23,11 @@ const LoginPage = () => {
     loginMutation(formState)
   }
 
+
+  console.log(error)
   
 
-  // if (isLoading) return <PageLoader />
+
 
 
   return (
