@@ -20,7 +20,9 @@ export const signup = async (signupData) => {
 
 export const login = async (loginData) => {
     const response = await axiosInstance.post("/auth/login", loginData);
-    return response.data;
+    console.log(response.data);
+    return response.data
+    
 } 
 
 export const logout = async () => {

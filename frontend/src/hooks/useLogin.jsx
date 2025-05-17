@@ -13,6 +13,11 @@ const useLogin = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['authUser']})
       toast.success('Login successful')
+      console.log('Before update =>', queryClient.getQueryData(['authUser']))
+      queryClient.setQueryData(['authUser'], (oldData) => ({
+        ...oldData,
+        isLoggedIn: true,
+      }))
       console.log('After update =>', queryClient.getQueryData(['authUser']))
 
       navigate('/');

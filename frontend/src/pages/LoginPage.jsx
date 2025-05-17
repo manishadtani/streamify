@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom'
 import { ShipWheelIcon } from 'lucide-react'
 import useLogin from '../hooks/useLogin'
 import singupimg from '../authassets/signup.png'
+// import useAuthUser from '../hooks/useAuthUser'
 
 const LoginPage = () => {
 
 
-  const { isLoading} = useAuthUser()
+  // const { isLoading} = useAuthUser()
   const navigate = useNavigate()
   
   const [formState, setFormState] = useState({
