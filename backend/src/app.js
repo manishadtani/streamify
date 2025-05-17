@@ -9,7 +9,7 @@ import userRoute from './routes/user.route.js'
 import chatRoute from './routes/chat.route.js'
 
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin:"https://streamify-murex.vercel.app",
     credentials:true
 }))
 
