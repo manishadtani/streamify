@@ -37,6 +37,7 @@ const chatPage = () => {
   useEffect(() => {
     const initChat = async () => {
         if(!tokenData?.token || !authUser) return
+      console.log("Token Data:", tokenData);
 
         try {
             console.log("Initializing chat...")

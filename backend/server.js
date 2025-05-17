@@ -1,5 +1,6 @@
-import { configDotenv } from 'dotenv'
-configDotenv()
+import dotenv from 'dotenv';
+dotenv.config(); // ✅ This line actually loads the .env file
+
 import app from './src/app.js'
 import connect from './src/db/db.js'
 
