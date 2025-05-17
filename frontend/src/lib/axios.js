@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 export const axiosInstance = axios.create({
-    baseURL: "http://localhost:3000/api",
+    baseURL: "https://streamify-ua7t.onrender.com/api",
     withCredentials:true,  // send cookiew with the request
     
 
