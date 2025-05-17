@@ -5,7 +5,7 @@ import { completeOnBoarding } from '../lib/api.js'
 import { CameraIcon, LoaderIcon, MapPinIcon, ShipWheelIcon, ShuffleIcon } from 'lucide-react'
 import { LANGUAGES } from '../constants/index.js'
 import toast from 'react-hot-toast'
-import { useNavigate } from 'react-router'
+import { useNavigate } from 'react-router-dom'
 
 const OnBoardingPage = () => {
   const { isLoading, authUser } = useAuthUser()
