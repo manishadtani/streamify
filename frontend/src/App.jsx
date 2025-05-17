@@ -7,7 +7,6 @@ import ChatPage from './pages/ChatPage'
 import CallPage from './pages/CallPage'
 import OnBoardingPage from './pages/Onboardingpage'
 import useAuthUser from './hooks/useAuthUser'
-import PageLoader from './components/pageLoader.jsx'
 import { Toaster } from 'react-hot-toast'
 import Layout from './components/Layout.jsx'
 import { useThemeStore } from './store/useThemeStore.jsx'
@@ -19,7 +18,7 @@ const App = () => {
   const isAuthenticated = Boolean(authUser)
   const isOnboarded = authUser?.isOnBoarded
 
-  if (isLoading) return <PageLoader />
+  // if (isLoading) return <PageLoader />
 
   return (
     <div className="h-screen" data-theme={theme}>

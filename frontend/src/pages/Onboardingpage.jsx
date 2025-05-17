@@ -5,7 +5,6 @@ import { completeOnBoarding } from '../lib/api.js'
 import { CameraIcon, LoaderIcon, MapPinIcon, ShipWheelIcon, ShuffleIcon } from 'lucide-react'
 import { LANGUAGES } from '../constants/index.js'
 import toast from 'react-hot-toast'
-import PageLoader from '../components/pageLoader.jsx'
 import { useNavigate } from 'react-router'
 
 const OnBoardingPage = () => {
@@ -58,7 +57,7 @@ const OnBoardingPage = () => {
     toast.success("Random profile picture generated")
   }
 
-  if (isLoading) return <PageLoader />
+  // if (isLoading) return <PageLoader />
 
   return (
     <div className="min-h-screen bg-base-100 flex items-center justify-center p-4">
