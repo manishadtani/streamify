@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {ShipWheelIcon} from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
 import useSignup from '../hooks/useSignup'
+import singupimg from '../authassets/signup.png'
 
 const signUpPage = () => {
 
@@ -157,7 +158,7 @@ const signUpPage = () => {
         <div className="max-w-md p-8">
           {/* Illustration */}
           <div className="relative aspect-square max-w-sm mx-auto">
-            <img src="/authassets/signuppng.png" alt="Language connection illustration" className="w-full h-full" />
+            <img src={singupimg} alt="Language connection illustration" className="w-full h-full" />
           </div>
 
           <div className="text-center space-y-3 mt-6">
