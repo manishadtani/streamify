@@ -8,7 +8,7 @@ const useAuthUser = () => {
         retry: false,
         refetchOnMount: true,
       });
-      return {isLoading: authUser.isLoading, authUser:authUser.data?.user};
+      return {isLoading: authUser.isLoading, authUser:authUser.data?.user, error: authUser.error, isLoggedIn: !!authUser.data?.user};
 }
 
 export default useAuthUser

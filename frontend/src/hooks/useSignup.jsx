@@ -11,7 +11,7 @@ const useSignup = () => {
         onSuccess: () => {
           queryClient.invalidateQueries({ queryKey : ["authUser"]})
         toast.success('Signup successful')
-        navigate('/');
+        navigate('/onboarding');
         },
     
         onError: (err) => {

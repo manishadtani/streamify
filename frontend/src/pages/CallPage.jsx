@@ -43,7 +43,7 @@ const CallPage = () => {
 
         const user = {
           id: authUser._id,
-          name: authUser.fullName,
+          name: authUser.fullname,
           image: authUser.profilePic,
         };
 
@@ -75,7 +75,7 @@ const CallPage = () => {
     initCall();
   }, [tokenData, authUser, callId]);
 
-  // if (isLoading || isConnecting) return <PageLoader />;
+  if (isLoading || isConnecting) return <div>Loading....</div>; 
 
   return (
     <div className="h-screen flex flex-col items-center justify-center">

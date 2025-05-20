@@ -48,7 +48,7 @@ const chatPage = () => {
               image: authUser.profilePic || ""
             }, tokenData.token)  
 
-            const channelId = [authUser._id, targetUserId].sort().join("_")
+            const channelId = [authUser._id, targetUserId].sort().join("-")
             const currentChannel = client.channel("messaging", channelId, {
               members: [authUser._id, targetUserId]
             })

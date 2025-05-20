@@ -5,11 +5,11 @@ import { axiosInstance } from "./axios";
 export const getAuthUser = async () => {
     try {
         const res = await axiosInstance.get('/auth/me');
-        console.log("getme ====="+res.data)
+        console.log('getAuthUser response:', res.data); // Response data log karo        return res.data;
         return res.data;
     } catch (error) {
-        console.log(error)
-        return null
+         console.error('getAuthUser error:', error.response?.data || error.message);
+        throw error; // Error ko throw karo taake useQuery handle kar sake
     }
 }
 
@@ -22,18 +22,18 @@ export const login = async (loginData) => {
     const response = await axiosInstance.post("/auth/login", loginData);
     console.log(response.data);
     return response.data
-    
-} 
+
+}
 
 export const logout = async () => {
     const response = await axiosInstance.post("/auth/logout");
     return response.data;
-} 
+}
 
 
 export const completeOnBoarding = async (userData) => {
     const res = await axiosInstance.post('/auth/onboarding', userData);
-    return res.data; 
+    return res.data;
 }
 
 export const getUserFriends = async () => {
@@ -45,7 +45,7 @@ export const getRecomendedUsers = async () => {
     const res = await axiosInstance.get('/user');
     return res.data;
 }
- 
+
 
 export const getOutGoingFriendRequests = async () => {
     const res = await axiosInstance.get('/user/outgoing-friend-requests');
@@ -67,10 +67,10 @@ export const getFriendRequests = async () => {
 
 export const acceptFriendRequest = async (requestId) => {
     const res = await axiosInstance.put(`/user/friend-request/${requestId}/accept`)
-        return res.data;
+    return res.data;
 }
 
 export const getStreamToken = async () => {
     const res = await axiosInstance.put('/chat/token')
-        return res.data;
+    return res.data;
 }

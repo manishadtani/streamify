@@ -14,20 +14,6 @@ const signUpPage = () => {
     password:''
   });
 
-  // const queryClient = useQueryClient()
-
-  // const {mutate:signupMutation, isPending, error} = useMutation({
-  //   mutationFn: signup,
-  //   onSuccess: () => {
-  //     queryClient.invalidateQueries({ queryKey : ["authUser"]})
-  //   toast.success('Signup successful')
-  //   navigate('/');
-  //   },
-
-  //   onError: (err) => {
-  //     toast.error(err?.response?.data?.message || "Something went wrong");
-  //   }
-  // })
 
   const {isPending, error, signupMutation} = useSignup()
 
